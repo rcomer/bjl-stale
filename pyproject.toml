@@ -1,0 +1,39 @@
+[build-system]
+# Defined by PEP 518
+requires = [
+  "setuptools>=42",
+  "wheel",
+  "numpy",
+  "setuptools_scm[toml]>=6.0"
+]
+# Defined by PEP 517
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools_scm]
+write_to = "stale/_version.py"
+
+[tool.black]
+target-version = ['py39']
+line-length = 88
+include = '\.pyi?$'
+exclude = '''
+(
+  /(
+      \.eggs
+    | \.git
+    | \.hg
+    | \.mypy_cache
+    | \.tox
+    | \.venv
+    | _build
+    | buck-out
+    | build
+    | dist
+  )/
+)
+'''
+
+[tool.isort]
+profile = "black"
+skip_gitignore = "True"
+verbose = "True"
