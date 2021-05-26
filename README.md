@@ -1,0 +1,2 @@
+# stale
+dummy stale repo
