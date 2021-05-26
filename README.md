@@ -1,2 +1,2 @@
 # stale
-dummy stale repo
+a stale repo waiting to go moldy
