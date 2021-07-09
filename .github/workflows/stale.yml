@@ -1,0 +1,35 @@
+name: Close Stale Issues and PRs
+on:
+  schedule:
+    - cron: 0,30 * * * *
+
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/stale@v3.0.19
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          stale-issue-message: |
+            In order to maintain a backlog of relevant issues, we automatically label them as stale after 14 days of inactivity.
+
+            If this issue is still relevant to you, then please comment on this issue or remove the stale label.
+
+            Otherwise this issue will be automatically closed in 7 days time.
+          stale-pr-message: | 
+            In order to maintain a backlog of relevant PRs, we automatically label them as stale after 14 days of inactivity.
+
+            If this PR is still relevant to you, then please comment on this PR or remove the stale label.
+
+            Otherwise this PR will be automatically closed in 7 days time.
+          stale-issue-label: stale
+          stale-pr-label: stale
+          close-issue-message: |
+            This stale issue has been automatically closed due to a lack of community activity.
+          close-pr-message: |
+            This stale PR has been automatically closed due to a lack of community activity.
+          exempt-issue-labels: blocked
+          exempt-pr-labels: blocked
+          days-before-stale: 14
+          days-before-close: 7
+          remove-stale-when-updated: true 
