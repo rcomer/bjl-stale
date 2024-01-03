@@ -39,7 +39,7 @@ jobs:
               * Add a comment and `@bjlittle` who will re-open on your behalf
           exempt-issue-labels: blocked
           exempt-pr-labels: blocked
-          days-before-stale: 1
+          days-before-stale: 0.01
           days-before-close: 1
           remove-stale-when-updated: true
           operations-per-run: 5
