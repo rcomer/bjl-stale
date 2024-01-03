@@ -2,12 +2,13 @@ name: Close Stale Issues and PRs
 on:
   schedule:
     - cron: 0,15,30,45 * * * *
+  workflow_dispatch:
 
 jobs:
   stale:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/stale@v3.0.19
+      - uses: actions/stale@v9
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           stale-issue-message: |
@@ -40,4 +41,5 @@ jobs:
           exempt-pr-labels: blocked
           days-before-stale: 1
           days-before-close: 1
-          remove-stale-when-updated: true 
+          remove-stale-when-updated: true
+          operations-per-run: 5
